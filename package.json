@@ -8,12 +8,21 @@
     "gulp": "^3.9.1"
   },
   "devDependencies": {
-    "eslint": "^3.15.0"
+    "eslint": "^3.15.0",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-coveralls": "^1.1.2",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.30",
+    "karma-verbose-reporter": "0.0.5"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
+  "<r>`wwwww</r>epository": {
     "type": "git",
     "url": "git+https://github.com/andela-oduyile/Inverted-Index-App.git"
   },
@@ -22,5 +31,12 @@
   "bugs": {
     "url": "https://github.com/andela-oduyile/Inverted-Index-App/issues"
   },
-  "homepage": "https://github.com/andela-oduyile/Inverted-Index-App#readme"
+  "homepage": "https://github.com/andela-oduyile/Inverted-Index-App#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-oduyile/Inverted-Index-App.git"
+  }
 }

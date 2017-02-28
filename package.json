@@ -20,7 +20,8 @@
     "karma-verbose-reporter": "0.0.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "gulp",
+    "test": "gulp test"
   },
   "<r>`wwwww</r>epository": {
     "type": "git",

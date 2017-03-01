@@ -11,7 +11,7 @@ gulp.task('browserSync', () => {
 	});
 });
 
-gulp.task('watch', ['browserSync'], () => {
+gulp.task('default', ['browserSync'], () => {
 	gulp.watch('public/index.html', browserSync.reload);
 	gulp.watch('public/partials/*.html', browserSync.reload);
 	gulp.watch('public/css/*.css', browserSync.reload);

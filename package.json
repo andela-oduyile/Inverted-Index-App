@@ -24,7 +24,7 @@
     "test": "gulp test"
   },
   "<r>`wwwww</r>epository": {
-    "type": "git",
+    "type": "git", ""
     "url": "git+https://github.com/andela-oduyile/Inverted-Index-App.git"
   },
   "author": "Duyile Oluwatomi John",

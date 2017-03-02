@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/andela-oduyile/Inverted-Index-App.svg?branch=master)](https://travis-ci.org/andela-oduyile/Inverted-Index-App)
 # Inverted-Index-App
  This App builds an index from books in a file and allows you search through the file for words in that book
 

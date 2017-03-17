@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "This App builds an index from books in a file and allows you search through the file for words in that book",
   "scripts": {
-    "start": "gulp browserSync",
+    "start": "gulp serve",
     "dev": "NODE_ENV=development gulp watch",
     "test": "NODE_ENV=test gulp test"
   },
@@ -12,7 +12,8 @@
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",
     "gulp-rename": "^1.2.2",
-    "karma": "^1.4.1"
+    "karma": "^1.4.1",
+    "node-static": "^0.7.9"
   },
   "devDependencies": {
     "eslint": "^3.17.0",

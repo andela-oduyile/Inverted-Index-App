@@ -3,19 +3,27 @@ const browserSync = require('browser-sync');
 
 const env = process.env.NODE_ENV;
 
-if (env === 'development' || env !== 'test') {
+if (process.env !== ('development' || 'test')) {
+  gulp.task('serve', () => {
+    const static = require('node-static');
+    const file = new static.Server('./public');
+    require('http').createServer((request, response) => {
+      request.addListener('end', function() {
+        file.serve(request, response);
+      }).resume();
+    }).listen(process.env.PORT || 3000);
+  })
+}
+
+if (env === 'development') {
   gulp.task('browserSync', () => {
     browserSync.init({
       server: {
         baseDir: 'public'
-      },
-      port: 4000,
-      open: env === 'development' ? true : false
+      }
     });
   });
-}
 
-if (env === 'development') {
   gulp.task('watch', ['browserSync'], () => {
     gulp.watch('public/index.html', browserSync.reload);
     gulp.watch('public/partials/*.html', browserSync.reload);

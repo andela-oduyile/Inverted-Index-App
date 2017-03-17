@@ -3,7 +3,7 @@ const browserSync = require('browser-sync');
 
 const env = process.env.NODE_ENV;
 
-if (process.env !== ('development' || 'test')) {
+if (env !== ('development' || 'test')) {
   gulp.task('serve', () => {
     const static = require('node-static');
     const file = new static.Server('./public');

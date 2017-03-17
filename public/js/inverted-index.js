@@ -17,7 +17,7 @@ class InvertedIndex {
   /**
    * getIndex method returns the indexed words and the documents that were found
    * @param {String} fileName - The name of the file to get its index
-   * @return {Array} - The index already created
+   * @return {Object} - The index already created
   */
   getIndex(fileName) {
     return this.filesIndexed[fileName] ? this.filesIndexed[fileName] : false;

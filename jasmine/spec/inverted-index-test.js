@@ -15,11 +15,11 @@ describe('Inverted Index Test', () => {
     });
     it('should return false for invalid content', () => {
       const validation = InvertedIndexUtility.isValidContent(invalidContent);
-      expect(validation).toBe(false);
+      expect(validation).not.toBe(true);
     });
     it('should return false for an empty array', () => {
       const validation = InvertedIndexUtility.isValidContent([]);
-      expect(validation).toBe(false);
+      expect(validation).toBeFalsy();
     });
     it('should return true for a valid JSON file format', () => {
       const validation = InvertedIndexUtility.isValidContent(data);
@@ -52,7 +52,7 @@ describe('Inverted Index Test', () => {
   });
 
   describe('Search Index', () => {
-    it('should return false if no match is found', () => {
+    it('should return an empty array if no match is found', () => {
       const query = 'you can\'t find me';
       inverted.createIndex('data.json', data);
       const actual = inverted.searchIndex(query, 'data.json').index;
@@ -120,9 +120,9 @@ describe('Testing Helper Methods', () => {
   });
   describe('Tokenize', () => {
     it('should return an array of Tokens', () => {
-      const input = 'Hello there! How are you 2day...';
+      const input = 'Hello there! How are you doing 2nite...';
       const actual = InvertedIndexUtility.Tokenize(input);
-      const expected = ['hello', 'there', 'how', 'are', 'you', 'day'];
+      const expected = ['hello', 'there', 'how', 'are', 'you', 'doing', 'nite'];
       expect(actual).toEqual(expected);
     });
   });
@@ -143,9 +143,9 @@ describe('Testing Helper Methods', () => {
       expect(actual).toBe(expected);
     });
     it('should return the index of the item if item in the array', () => {
-      const fileNames = ['data.json', 'book.json', 'folder.json'];
+      const fileNames = ['book1.json', 'book2.json', 'book3.json'];
       const actual = InvertedIndexUtility
-      .getSelectedIndex(fileNames, 'folder.json');
+      .getSelectedIndex(fileNames, 'book3.json');
       const expected = 2;
       expect(actual).toBe(expected);
     });
@@ -171,7 +171,7 @@ describe('Testing Helper Methods', () => {
        const expected = [[true, false, false], [true, true, false]];
        expect(actual).toEqual(expected);
      });
-    it('should split the array into three sub-arrays for a book count of two', 
+    it('should split the array into three sub-arrays for a book count of two',
     () => {
       const input = [true, false, false, true, true, false];
       const bookCount = 3;

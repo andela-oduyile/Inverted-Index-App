@@ -31,7 +31,7 @@ class InvertedIndexUtility {
    * and also converts the query string into an array of each unique term
    * @static
    * @param {String} query - The terms to search for the index
-   * @returns {Array} - The already formotted query
+   * @returns {Array} - The already formatted query
    * @memberOf InvertedIndexUtility
    */
   static sanitizeQuery(query) {

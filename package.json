@@ -2,7 +2,11 @@
   "name": "invertedindexapp",
   "version": "1.0.0",
   "description": "This App builds an index from books in a file and allows you search through the file for words in that book",
-  "main": "index.js",
+  "scripts": {
+    "start": "gulp browserSync",
+    "dev": "NODE_ENV=development gulp watch",
+    "test": "NODE_ENV=test gulp test"
+  },
   "dependencies": {
     "browser-sync": "^2.18.7",
     "gulp": "^3.9.1",
@@ -24,10 +28,6 @@
     "karma-jasmine": "^1.1.0",
     "karma-spec-reporter": "0.0.30",
     "karma-verbose-reporter": "0.0.5"
-  },
-  "scripts": {
-    "start": "gulp",
-    "test": "gulp test"
   },
   "<r>`wwwww</r>epository": {
     "type": "git",

@@ -1,3 +1,4 @@
 ./jasmine/lib
 gulpfile.js
 karma.conf.js
+public/js/validations.js

@@ -1,0 +1,49 @@
+{
+  "name": "invertedindexapp",
+  "version": "1.0.0",
+  "description": "This App builds an index from books in a file and allows you search through the file for words in that book",
+  "main": "index.js",
+  "dependencies": {
+    "browser-sync": "^2.18.7",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-rename": "^1.2.2",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.1",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-coverage": "^1.1.1",
+    "karma-coveralls": "^1.1.2",
+    "karma-firefox-launcher": "^1.0.0",
+    "karma-jasmine": "^1.1.0",
+    "karma-spec-reporter": "0.0.30",
+    "karma-verbose-reporter": "0.0.5"
+  },
+  "scripts": {
+    "start": "gulp",
+    "test": "gulp test"
+  },
+  "<r>`wwwww</r>epository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-oduyile/Inverted-Index-App.git"
+  },
+  "author": "Duyile Oluwatomi John",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andela-oduyile/Inverted-Index-App/issues"
+  },
+  "homepage": "https://github.com/andela-oduyile/Inverted-Index-App#readme",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-oduyile/Inverted-Index-App.git"
+  }
+}

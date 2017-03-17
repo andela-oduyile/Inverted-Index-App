@@ -38,11 +38,10 @@ if (env === 'test') {
   const Server = require('karma').Server;
   const rename = require('gulp-rename');
 
-  gulp.task('test', (done) => {
+  gulp.task('test', () => {
     new Server({
-      configFile: path.join(__dirname, 'karma.conf.js'),
-      singleRun: true
-    }, done).start();
+      configFile: path.join(__dirname, 'karma.conf.js')
+    }, () => process.exit(0)).start();
   });
 
   gulp.task('browserify', () => {

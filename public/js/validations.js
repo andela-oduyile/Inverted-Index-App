@@ -24,7 +24,7 @@ class Validations {
           ok: {
             className: 'btn-danger'
           }
-        },
+        }
       });
       return false;
     }
@@ -38,18 +38,7 @@ class Validations {
    */
   static isValidContent(bookContent) {
     bookContent = JSON.parse(bookContent);
-    if (bookContent.length === undefined) {
-      bootbox.alert({
-        message: 'The content of the file is not valid',
-        backdrop: true,
-        buttons: {
-          ok: {
-            className: 'btn-danger'
-          }
-        },
-      });
-      return false;
-    }
+    
 
     for (let i = 0; i < bookContent.length; i += 1) {
       if ((!bookContent[i].title) || (!bookContent[i].text)) {
@@ -60,7 +49,7 @@ class Validations {
             ok: {
               className: 'btn-danger'
             }
-          },
+          }
         });
         return false;
       }

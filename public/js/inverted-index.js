@@ -17,7 +17,7 @@ class InvertedIndex {
   /**
    * getIndex method returns the indexed words and the documents that were found
    * @param {String} fileName - The name of the file to get its index
-   * @return {Array} - The index already created
+   * @return {Object} - The index already created
   */
   getIndex(fileName) {
     return this.filesIndexed[fileName] ? this.filesIndexed[fileName] : false;
@@ -28,7 +28,7 @@ class InvertedIndex {
    * @param {String} fileName - The name of the file to create index
    * @param {Array} fileContent - A valid JSON file containg an
    * array of books with title and text
-   * @return {Array} - The index already created
+   * @return {Object} - The index already created
    * @memberOf InvertedIndex
    */
   createIndex(fileName, fileContent) {
@@ -51,8 +51,8 @@ class InvertedIndex {
    * searchIndex Method searches an already created index for matches.
    * @param {String} query - The terms to search for the index
    * @param {String} fileName - The name of the file to create index
-   * @return {Array} - The queried indexed array is returned if a match
-   * is found.-1 is returned if no match is found
+   * @return {Object} - The queried indexed array is returned if a match
+   * is found.-1 is returned if index has not been created
    * @memberOf InvertedIndex
    */
   searchIndex(query, fileName) {

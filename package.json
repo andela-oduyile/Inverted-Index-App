@@ -6,7 +6,7 @@
     "start": "gulp serve",
     "dev": "NODE_ENV=development gulp watch",
     "coveralls": "cat ./coverage/**/lcov.info | ./node_modules/.bin/coveralls",
-    "test": "NODE_ENV=test gulp test && npm run coveralls"
+    "test": "NODE_ENV=test gulp test"
   },
   "dependencies": {
     "browser-sync": "^2.18.7",

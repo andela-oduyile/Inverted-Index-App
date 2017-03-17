@@ -9,6 +9,7 @@ if (env === 'development' || env !== 'test') {
       server: {
         baseDir: 'public'
       },
+      port: 4000,
       open: env === 'development' ? true : false
     });
   });

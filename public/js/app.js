@@ -82,7 +82,6 @@ angular.module('invertedIndexApp', [])
         }
       }
     }
-
   };
 
   $scope.searchAllFiles = () => {

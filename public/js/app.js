@@ -75,13 +75,14 @@ angular.module('invertedIndexApp', [])
            === -1) {
             $scope.fileNameToSearch.push($scope.selectedFile);
           }
+          $scope.currentlyIndexed = $scope.selectedFile;
+          $scope.showIndexTable = true;
+          $scope.showIndexTableQueried = false;
+          $scope.showIndexTableQueriedAll = false;
         }
       }
     }
-    $scope.currentlyIndexed = $scope.selectedFile;
-    $scope.showIndexTable = true;
-    $scope.showIndexTableQueried = false;
-    $scope.showIndexTableQueriedAll = false;
+
   };
 
   $scope.searchAllFiles = () => {
@@ -157,8 +158,9 @@ angular.module('invertedIndexApp', [])
         };
         reader.readAsText(file);
       } else {
+        const msg = `${file.name} is not valid! Only JSON file allowed `;
         bootbox.alert({
-          message: 'Invalid File Type! Only Json file allowed',
+          message: msg,
           backdrop: true,
           buttons: {
             ok: {

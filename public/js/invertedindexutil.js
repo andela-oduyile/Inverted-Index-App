@@ -240,7 +240,7 @@ class InvertedIndexUtility {
 
   /**
    * This method checks if the file is valid JSON
-   * @param {any} file
+   * @param {JSON} file
    * @returns {boolean} - return true or false depending
    * on whether the file is valid JSON
    * @memberOf Validations
@@ -256,7 +256,7 @@ class InvertedIndexUtility {
 
   /**
    * This method checks if the content of a JSON file is valid
-   * @param {any} file - The content of the JSON file
+   * @param {JSON} file - The content of the JSON file
    * @returns {boolean} - returns true or false depending
    * on whether the content of the JSON file is valid
    * @memberOf InvertedIndex

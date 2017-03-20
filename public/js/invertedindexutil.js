@@ -123,7 +123,7 @@ class InvertedIndexUtility {
     for (let i = 0; i < file.length; i += 1) {
       words += `${file[i].text} `;
     }
-    words = this.Tokenize(words).slice(0, words.length - 1);
+    words = this.tokenize(words).slice(0, words.length - 1);
     words = this.removeDuplicateWords(words);
 
     return words.slice(0, words.length);
@@ -143,7 +143,7 @@ class InvertedIndexUtility {
     let bookContent;
     for (let i = 0; i < file.length; i += 1) {
       bookContent = `${file[i].text} `;
-      bookContent = this.Tokenize(bookContent);
+      bookContent = this.tokenize(bookContent);
       bookContent = this.removeDuplicateWords(bookContent);
       doc.push(bookContent.slice(0, bookContent.length));
     }

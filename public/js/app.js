@@ -140,7 +140,7 @@ angular.module('invertedIndexApp', [])
 
       if ($scope.fileName.indexOf(file.name) !== -1) {
         bootbox.alert({
-          message: 'File name already exists',
+          message: `The file name ${file.name} already exists`,
           backdrop: true,
           buttons: {
             ok: {

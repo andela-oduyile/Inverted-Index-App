@@ -51,7 +51,7 @@ class InvertedIndexUtility {
 
   /**
    * This method remove all the duplicate words in an Array
-   * @param {*} words - an array of words
+   * @param {Array} words - an array of words
    * @returns {Array} - a new array with no duplicate words
    */
   static removeDuplicateWords(words) {

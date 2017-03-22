@@ -1,4 +1,3 @@
----
 engines:
   csslint:
     enabled: true
@@ -6,10 +5,7 @@ engines:
     enabled: true
     config:
       languages:
-      - ruby
       - javascript
-      - python
-      - php
   eslint:
     enabled: true
     channel: "eslint-3"
@@ -17,14 +13,7 @@ engines:
     enabled: true
 ratings:
   paths:
-  - "**.css"
-  - "**.inc"
   - "**.js"
-  - "**.jsx"
-  - "**.module"
-  - "**.php"
-  - "**.py"
-  - "**.rb"
 exclude_paths:
 - "tests/"
 - "spec/"

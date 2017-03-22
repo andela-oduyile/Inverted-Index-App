@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 
-const data = require('./data.json');
-const book = require('./books.json');
-const invalid = require('./invalid.json');
-const invalidContent = require('./invalid-content.json');
+const data = require('./data');
+const books = require('./books');
+const invalid = require('./invalid');
+const invalidContent = require('./invalidContent');
 
 const inverted = new InvertedIndex();
 
@@ -74,12 +74,13 @@ describe('Inverted Index Test', () => {
     it('should get search result for all files indexded', () => {
       const query = 'alice is lost in the ring';
       inverted.createIndex('data.json', data);
-      inverted.createIndex('books.json', book);
+      inverted.createIndex('books.json', books);
       const actual = inverted.searchIndex(query, 'All').index;
       const expected = [
-        [['alice', true, false], ['ring', false, true]],
-        [['alice', true, false], ['is', true, true], ['lost', true, true]]
+        [['alice', true, false], ['is', true, true], ['lost', true, true]],
+        [['alice', true, false], ['ring', false, true]]
       ];
+      expect(actual).toEqual(expected);
     });
   });
 });
@@ -121,7 +122,7 @@ describe('Testing Helper Methods', () => {
   describe('Tokenize', () => {
     it('should return an array of Tokens', () => {
       const input = 'Hello there! How are you doing 2nite...';
-      const actual = InvertedIndexUtility.Tokenize(input);
+      const actual = InvertedIndexUtility.tokenize(input);
       const expected = ['hello', 'there', 'how', 'are', 'you', 'doing', 'nite'];
       expect(actual).toEqual(expected);
     });
@@ -200,7 +201,7 @@ describe('Testing Helper Methods', () => {
       const titles = ['Alice in Wonderland', 'Harry Potter'];
       const actual = InvertedIndexUtility
       .constructIndex(words, wordsInEachBook, titles);
-      const expected = [['alice', true, false], ['in', true, true], 
+      const expected = [['alice', true, false], ['in', true, true],
       ['wonderland', false, false]];
       expect(actual).toEqual(expected);
     });

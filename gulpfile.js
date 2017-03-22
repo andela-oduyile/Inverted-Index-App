@@ -38,17 +38,14 @@ if (env === 'test') {
   const Server = require('karma').Server;
   const rename = require('gulp-rename');
 
-  gulp.task('test', function karma(done) {
-    new Server({
-      configFile: path.join(__dirname, 'karma.conf.js')
-    }, () => done).start();
-  });
+  gulp.task('browserify', () => gulp
+  .src('./jasmine/spec/inverted-index-test.js')
+  .pipe(browserify())
+  .pipe(rename('bundledTest.js'))
+  .pipe(gulp.dest('jasmine')));
 
-  gulp.task('browserify', () => {
-    gulp.src('./jasmine/spec/inverted-index-test.js')
-    .pipe(browserify())
-    .pipe(rename('bundledTest.js'))
-    .pipe(gulp.dest('jasmine'));
-  });
+  gulp.task('test', ['browserify'], done => new Server({
+    configFile: path.join(__dirname, 'karma.conf.js')
+  }, () => done).start());
 }
 

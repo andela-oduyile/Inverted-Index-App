@@ -127,14 +127,6 @@ describe('Testing Helper Methods', () => {
       expect(actual).toEqual(expected);
     });
   });
-  describe('Sanitize Query', () => {
-    it('should return an array of the sanitized query', () => {
-      const input = '  Hello-there! How are you you 2day...   ';
-      const actual = InvertedIndexUtility.sanitizeQuery(input);
-      const expected = ['hello', 'there', 'how', 'are', 'you', 'day'];
-      expect(actual).toEqual(expected);
-    });
-  });
   describe('Get Selected Index', () => {
     it('should return the index of the given filename', () => {
       const fileNames = ['data.json', 'book.json', 'folder.json'];
@@ -156,7 +148,7 @@ describe('Testing Helper Methods', () => {
       const words = ['alice', 'lord', 'wonderland', 'ring', 'in'];
       const wordsInEachBook = [['alice', 'in', 'ring'], ['lord', 'in', 'ring']];
       const actual = InvertedIndexUtility
-      .checkOccurenceOfWords(words, wordsInEachBook);
+      .checkOccurence(words, wordsInEachBook);
       const expected = [true, false, false, true, false,
         false, true, true, true, true];
       expect(actual).toEqual(expected);
@@ -168,7 +160,7 @@ describe('Testing Helper Methods', () => {
        const input = [true, false, false, true, true, false];
        const bookCount = 3;
        const actual = InvertedIndexUtility
-       .getWordOccurenceForEachBook(input, bookCount);
+       .getEachBookOccurence(input, bookCount);
        const expected = [[true, false, false], [true, true, false]];
        expect(actual).toEqual(expected);
      });
@@ -177,7 +169,7 @@ describe('Testing Helper Methods', () => {
       const input = [true, false, false, true, true, false];
       const bookCount = 3;
       const actual = InvertedIndexUtility
-      .getWordOccurenceForEachBook(input, bookCount);
+      .getEachBookOccurence(input, bookCount);
       const expected = [[true, false, false], [true, true, false]];
       expect(actual).toEqual(expected);
     });

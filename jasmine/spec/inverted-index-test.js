@@ -5,7 +5,7 @@ const books = require('./books');
 const invalid = require('./invalid');
 const invalidContent = require('./invalidContent');
 
-const inverted = new InvertedIndex();
+const invertedIndex = new InvertedIndex();
 
 describe('Inverted Index Test', () => {
   describe('Validations', () => {
@@ -29,15 +29,15 @@ describe('Inverted Index Test', () => {
 
   describe('Get Index', () => {
     it('should return false if index has not been created', () => {
-      const actual = inverted.getIndex('books.json');
+      const actual = invertedIndex.getIndex('books.json');
       expect(actual).toBe(false);
     });
   });
 
   describe('Create Index', () => {
     it('should return the index of the file', () => {
-      inverted.createIndex('data.json', data);
-      const indexCreated = inverted.getIndex('data.json').index;
+      invertedIndex.createIndex('data.json', data);
+      const indexCreated = invertedIndex.getIndex('data.json').index;
       const indexExpected = [
         ['alice', true, false],
         ['again', true, false],
@@ -54,15 +54,15 @@ describe('Inverted Index Test', () => {
   describe('Search Index', () => {
     it('should return an empty array if no match is found', () => {
       const query = 'you can\'t find me';
-      inverted.createIndex('data.json', data);
-      const actual = inverted.searchIndex(query, 'data.json').index;
+      invertedIndex.createIndex('data.json', data);
+      const actual = invertedIndex.searchIndex(query, 'data.json').index;
       const expected = [];
       expect(actual).toEqual(expected);
     });
     it('should return the result if a query is found', () => {
       const query = 'harry lost is magic';
-      inverted.createIndex('data.json', data);
-      const actual = inverted.searchIndex(query, 'data.json').index;
+      invertedIndex.createIndex('data.json', data);
+      const actual = invertedIndex.searchIndex(query, 'data.json').index;
       const expected = [
         ['harry', false, true],
         ['lost', true, true],
@@ -73,9 +73,9 @@ describe('Inverted Index Test', () => {
     });
     it('should get search result for all files indexded', () => {
       const query = 'alice is lost in the ring';
-      inverted.createIndex('data.json', data);
-      inverted.createIndex('books.json', books);
-      const actual = inverted.searchIndex(query, 'All').index;
+      invertedIndex.createIndex('data.json', data);
+      invertedIndex.createIndex('books.json', books);
+      const actual = invertedIndex.searchIndex(query, 'All').index;
       const expected = [
         [['alice', true, false], ['is', true, true], ['lost', true, true]],
         [['alice', true, false], ['ring', false, true]]
@@ -97,7 +97,7 @@ describe('Testing Helper Methods', () => {
   describe('Get All words in each Book method', () => {
     it('should return an array of arrays that contains all words in each book',
      () => {
-       const actual = InvertedIndexUtility.getAllWordsInEachBook(data);
+       const actual = InvertedIndexUtility.getBookWords(data);
        const expected = [['alice', 'is', 'lost', 'again'],
         ['harry', 'lost', 'is', 'magic', 'wand']];
        expect(actual).toEqual(expected);
@@ -106,7 +106,7 @@ describe('Testing Helper Methods', () => {
   describe('Get Titles of each book', () => {
     it('should return an array that consists of all the title of each book',
      () => {
-       const actual = InvertedIndexUtility.getTitlesOfEachBook(data);
+       const actual = InvertedIndexUtility.getBookTitles(data);
        const expected = ['Alice in Wonderland', 'Harry Potter'];
        expect(actual).toEqual(expected);
      });
@@ -114,7 +114,7 @@ describe('Testing Helper Methods', () => {
   describe('Remove Duplicate words', () => {
     it('Should remove all duplicate words in an array', () => {
       const input = ['alice', 'is', 'alice', 'lord', 'word', 'word'];
-      const actual = InvertedIndexUtility.removeDuplicateWords(input);
+      const actual = InvertedIndexUtility.removeDuplicates(input);
       const expected = ['is', 'alice', 'lord', 'word'];
       expect(actual).toEqual(expected);
     });
@@ -148,7 +148,7 @@ describe('Testing Helper Methods', () => {
       const words = ['alice', 'lord', 'wonderland', 'ring', 'in'];
       const wordsInEachBook = [['alice', 'in', 'ring'], ['lord', 'in', 'ring']];
       const actual = InvertedIndexUtility
-      .checkOccurence(words, wordsInEachBook);
+      .checkOccurrence(words, wordsInEachBook);
       const expected = [true, false, false, true, false,
         false, true, true, true, true];
       expect(actual).toEqual(expected);
@@ -160,7 +160,7 @@ describe('Testing Helper Methods', () => {
        const input = [true, false, false, true, true, false];
        const bookCount = 3;
        const actual = InvertedIndexUtility
-       .getEachBookOccurence(input, bookCount);
+       .getBookOccurrence(input, bookCount);
        const expected = [[true, false, false], [true, true, false]];
        expect(actual).toEqual(expected);
      });
@@ -169,7 +169,7 @@ describe('Testing Helper Methods', () => {
       const input = [true, false, false, true, true, false];
       const bookCount = 3;
       const actual = InvertedIndexUtility
-      .getEachBookOccurence(input, bookCount);
+      .getBookOccurrence(input, bookCount);
       const expected = [[true, false, false], [true, true, false]];
       expect(actual).toEqual(expected);
     });
@@ -180,7 +180,7 @@ describe('Testing Helper Methods', () => {
        const words = ['alice', 'in', 'wonderland'];
        const wordsOccurence = [[true, false], [false, true], [true, false]];
        const actual = InvertedIndexUtility
-       .mapWordsWithOccurence(words, wordsOccurence);
+       .mapWords(words, wordsOccurence);
        const expected = [['alice', true, false], ['in', false, true],
         ['wonderland', true, false]];
        expect(actual).toEqual(expected);

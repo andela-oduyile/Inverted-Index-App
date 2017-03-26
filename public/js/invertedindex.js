@@ -32,18 +32,14 @@ class InvertedIndex {
    * @memberOf InvertedIndex
    */
   createIndex(fileName, fileContent) {
-    const bookTitles = InvertedIndexUtility
-    .getTitlesOfEachBook(fileContent);
-    const words = InvertedIndexUtility
-    .getAllWords(fileContent);
-    const wordsInEachBook = InvertedIndexUtility
-    .getAllWordsInEachBook(fileContent);
-    const indexConstructed = InvertedIndexUtility
-    .constructIndex(words, wordsInEachBook, bookTitles);
+    const title = InvertedIndexUtility.getBookTitles(fileContent);
+    const words = InvertedIndexUtility.getAllWords(fileContent);
+    const bookWords = InvertedIndexUtility.getBookWords(fileContent);
+    const index = InvertedIndexUtility.constructIndex(words, bookWords, title);
 
     this.filesIndexed[fileName] = {
-      index: indexConstructed,
-      title: bookTitles
+      title,
+      index
     };
   }
 
@@ -58,7 +54,7 @@ class InvertedIndex {
   searchIndex(searchTerms, fileName) {
     let searchResult = false;
     searchTerms = InvertedIndexUtility.tokenize(searchTerms);
-    searchTerms = InvertedIndexUtility.removeDuplicateWords(searchTerms);
+    searchTerms = InvertedIndexUtility.removeDuplicates(searchTerms);
     if (fileName === 'All') {
       const result = [];
       const bookNames = [];

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/andela-oduyile/Inverted-Index-App.svg?branch=chore%2F1003%2Fsetting-up-continuous-integration)](https://travis-ci.org/andela-oduyile/Inverted-Index-App) [![Coverage Status](https://coveralls.io/repos/github/andela-oduyile/Inverted-Index-App/badge.png?branch=development)](https://coveralls.io/github/andela-oduyile/Inverted-Index-App?branch=development) [![Code Climate](https://codeclimate.com/github/andela-oduyile/Inverted-Index-App/badges/gpa.svg)](https://codeclimate.com/github/andela-oduyile/Inverted-Index-App)
+[![Build Status](https://travis-ci.org/andela-oduyile/Inverted-Index-App.svg?branch=chore%2F1003%2Fsetting-up-continuous-integration)](https://travis-ci.org/andela-oduyile/Inverted-Index-App) [![Coverage Status](https://coveralls.io/repos/github/andela-oduyile/Inverted-Index-App/badge.png?branch=production)](https://coveralls.io/github/andela-oduyile/Inverted-Index-App?branch=production) [![Code Climate](https://codeclimate.com/github/andela-oduyile/Inverted-Index-App/badges/gpa.svg)](https://codeclimate.com/github/andela-oduyile/Inverted-Index-App)
 
 # Inverted Index Application
 
